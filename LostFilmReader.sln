@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostFilmReaderWP", "LostFilmReader\LostFilmReaderWP.csproj", "{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostFilmLibrary", "LostFilmLibrary\LostFilmLibrary.csproj", "{04C81969-8C71-4DD9-999B-2E75E0BE78DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|ARM.ActiveCfg = Debug|ARM
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|ARM.Build.0 = Debug|ARM
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|ARM.Deploy.0 = Debug|ARM
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|x86.ActiveCfg = Debug|x86
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|x86.Build.0 = Debug|x86
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Debug|x86.Deploy.0 = Debug|x86
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|ARM.ActiveCfg = Release|ARM
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|ARM.Build.0 = Release|ARM
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|ARM.Deploy.0 = Release|ARM
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|x86.ActiveCfg = Release|x86
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|x86.Build.0 = Release|x86
+		{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}.Release|x86.Deploy.0 = Release|x86
+		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

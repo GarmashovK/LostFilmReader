@@ -1,0 +1,42 @@
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\LostFilmLibrary.dll.config
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\LostFilmLibrary.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\LostFilmLibrary.pdb
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\HtmlAgilityPack-PCL.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\HtmlAgilityPack-PCL.xml
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.xml
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\obj\Debug\LostFilmLibrary.csproj.App.config
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\obj\Debug\LostFilmLibrary.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\obj\Debug\LostFilmLibrary.pdb
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\obj\Debug\LostFilmLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fairesko\Documents\VSProjects\LostFilmReader\LostFilmLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\LostFilmLibrary.dll.config
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\LostFilmLibrary.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\LostFilmLibrary.pdb
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\HtmlAgilityPack-PCL.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\HtmlAgilityPack-PCL.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\obj\Debug\LostFilmLibrary.csproj.App.config
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\obj\Debug\LostFilmLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\obj\Debug\LostFilmLibrary.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\obj\Debug\LostFilmLibrary.pdb
