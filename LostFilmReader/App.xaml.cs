@@ -69,7 +69,7 @@ namespace LostFilmReader
             if (System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings.Contains("IsAuthorized") &&
                 (bool)System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings["IsAuthorized"] == true)
             {
-                LFOptions.Cookies = (CookieContainer)System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings["cookies"];
+                LoginPage.LoadCookies();
             }
         }
 

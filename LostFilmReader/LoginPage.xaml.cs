@@ -39,7 +39,8 @@ namespace LostFilmReader
             try
             {
                 var cookies = await Authorization.TryLogin(email, pass);
-                settings["cookies"] = LFOptions.Cookies = cookies;
+                LFOptions.Cookies = cookies;
+                SaveCookies(cookies);
                 settings["IsAuthorized"] = true;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
@@ -51,6 +52,40 @@ namespace LostFilmReader
 
             settings.Save();
             SystemTray.ProgressIndicator.IsVisible = false;
+        }
+
+        private static void SaveCookies(CookieContainer cookies)
+        {
+            string strCookies = "";
+
+            foreach (Cookie item in cookies
+                .GetCookies(new Uri("http://www.lostfilm.tv/")))
+            {
+                strCookies += item.Name + '=' + item.Value + ';';
+            }
+            IsolatedStorageSettings.ApplicationSettings["cookies"] = strCookies;
+        }
+
+        public static void LoadCookies()
+        {
+            string strCookies = IsolatedStorageSettings.ApplicationSettings["cookies"] as string;
+            var cookies = LFOptions.Cookies = new CookieContainer();
+            var cookieUri = new Uri("http://www.lostfilm.tv/");
+
+            do
+            {
+                var tmpStr = strCookies.Substring(0, strCookies.IndexOf(';'));
+
+                int sign = tmpStr.IndexOf('=');
+
+                var cookieName = tmpStr.Substring(0, sign);
+                var cookieValue = tmpStr.Substring(sign + 1);
+
+                cookies.Add(cookieUri,
+                    new Cookie(cookieName, cookieValue));
+                strCookies = strCookies.Substring(strCookies.IndexOf(';') + 1);
+
+            } while (strCookies.Length != 0);
         }
     }
 }

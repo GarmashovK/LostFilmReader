@@ -240,7 +240,7 @@ namespace LostFilmLibrary.News
                 return await LoadCommentsAsync(id, NumOfComments - 20);
         }
 
-        public async Task<int> PostComment(uint news_id,string comment)
+        public async Task<string> PostComment(uint news_id,string comment)
         {
             var url = "http://www.lostfilm.tv/news.php";
 
@@ -269,17 +269,24 @@ namespace LostFilmLibrary.News
             finally { }
 
             var response_result = await response_msg.Content.ReadAsStringAsync();
-
-            var result = DeserializeResponse(response_result);
-
-            return 1;
+            
+            return DeserializeResponse(response_result);
         }
 
-        private object DeserializeResponse(string response_result)
+        private string DeserializeResponse(string response_result)
         {
-            var deserialized = JsonConvert.DeserializeObject(response_result);
+            var deserialized = JsonConvert
+                .DeserializeObject<Dictionary<string,string>>(response_result);
+            int result;
 
-            return deserialized;
+            if (!deserialized.ContainsKey("error"))
+            {
+                return "ok";
+            }
+            else
+            {
+                return deserialized["error"];
+            }
         }
         
         private static HttpContent GetPostСommentData(uint news_id, string comment)
