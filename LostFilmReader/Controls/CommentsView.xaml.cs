@@ -28,6 +28,8 @@ namespace LostFilmReader.Controls
             }
         }
 
+        public event EventHandler CommentsLoaded;
+
         private void CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             //switch (e.Action)
@@ -83,6 +85,8 @@ namespace LostFilmReader.Controls
 
                 ListView.Children.Add(commentItem);
             }
+
+            CommentsLoaded(this, new EventArgs());
         }
 
         public CommentsView()

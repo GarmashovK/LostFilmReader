@@ -38,7 +38,7 @@
         <!--TitlePanel contains the name of the application and page title-->
         
         <!--ContentPanel - place additional content here-->
-        <TextBlock x:Name="CommentPositionBox" Text="0" 
+        <TextBlock x:Name="CommentsPositionBlock" Text="0" 
                    Grid.Row="0"
                    FontSize="30" FontWeight="Bold"
                    HorizontalAlignment="Center"/>

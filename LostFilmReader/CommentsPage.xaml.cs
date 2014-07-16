@@ -15,6 +15,7 @@ namespace LostFilmReader
         private uint Id { get; set; }
         private string Link { get; set; }
         private uint NumOfComments { get; set; }
+        private uint CommentsPosition { get; set; }
         private LostFilmLibrary.News.NewsPage NewsPageModel { get; set; }
 
         public CommentsPage()
@@ -22,6 +23,7 @@ namespace LostFilmReader
             InitializeComponent();
 
             NewsPageModel = new LostFilmLibrary.News.NewsPage();
+            CommentsPosition = 0;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -35,12 +37,17 @@ namespace LostFilmReader
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadComments(0);
+            CommentsViewer.CommentsLoaded += CommentsViewer_CommentsLoaded;
 
+            LoadComments(CommentsPosition);           
+        }
+
+        private void CommentsViewer_CommentsLoaded(object sender, EventArgs e)
+        {
             var tmpChildren = ((StackPanel)CommentsViewer.ListView).Children;
             foreach (Controls.CommentItem item in tmpChildren)
             {
-                item.QuoteMenuItem.Click += QuoteMenuItem_Click;
+                item.DoQuote += QuoteMenuItem_Click;
             }
         }
 
@@ -61,28 +68,65 @@ namespace LostFilmReader
                 MessageBox.Show(exc.Message);
             }
             SystemTray.ProgressIndicator.IsVisible = false;
+
+            CommentsPositionBlock.Text = CommentsPosition.ToString() + '/' + NumOfComments.ToString();
+            
             //----------- Окончание загрузки
         }
 
-        private void QuoteMenuItem_Click(object sender, RoutedEventArgs e)
+        private void QuoteMenuItem_Click(object sender, EventArgs e)
         {
-            var tmp = (Controls.CommentItem)sender;
-            var data = (LostFilmLibrary.News.Comment)tmp.DataContext;
+            var data = (LostFilmLibrary.News.Comment)sender;
 
             CommentBox.Text += data;
         }
 
-        private void PostCommentButton_Click(object sender, EventArgs e)
+        private async void PostCommentButton_Click(object sender, EventArgs e)
         {
             if (CommentBox.Text != null && CommentBox.Text != string.Empty)
-                NewsPageModel.PostComment(Id, CommentBox.Text);
+            {
+                var result = await NewsPageModel.PostComment(Id, CommentBox.Text);
+
+                switch (result)
+                {
+                    case "ok":
+                        LoadComments(CommentsPosition);
+                        MessageBox.Show("Комментарий успешно добавлен.");
+                        break;
+                    case "forbidden":
+                        MessageBox.Show("Запрещено.");
+                        break;
+                    case "deleted":
+                        MessageBox.Show("Комментарий уже удален.");
+                        break;
+                    case "required_error":
+                        MessageBox.Show("Ошибка. Не все обязательные поля присутствуют.");
+                        break;
+                    case "bad_words":
+                        MessageBox.Show("Ошибка. Ваш комментарий не может быть отправлен. Он нарушает ПРАВИЛА сайта.");
+                        break;
+                    case "lol":
+                        MessageBox.Show("Ошибка. Обсуждать пока нечего.");
+                        break;
+                    case "newbee":
+                        MessageBox.Show("Возможность комментирования активируется на 2-е сутки после регистрации.");
+                        break;
+                    case "closed":
+                        MessageBox.Show("Возможность комментирования данной новости отключена.");
+                        break;
+                    case "system_error":
+                        MessageBox.Show("Ошибка. Отсутствует, либо неверен ключ.");
+                        break;
+                }
+                CommentBox.Text = "";
+            }
             else
                 MessageBox.Show("Пустой комментарий!");
         }
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-
+            CommentsPosition += 20;
         }
 
         private void NextButton_Click(object sender, EventArgs e)

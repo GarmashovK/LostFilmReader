@@ -43,7 +43,7 @@ namespace LostFilmLibrary.News
 
         public override string ToString()
         {
-            return ContentQuote(Content);
+            return DoQuote();
         }
 
         private string ContentQuote(CommentContent content)

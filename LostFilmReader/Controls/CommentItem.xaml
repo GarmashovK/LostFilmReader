@@ -13,7 +13,8 @@
         <toolkit:ContextMenuService.ContextMenu>
             <toolkit:ContextMenu>
                 <toolkit:MenuItem 
-                x:Name="QuoteMenuItem" 
+                x:Name="QuoteMenuItem"
+                    Click="QuoteMenuItem_Click"
                 Header="Цитировать"/>
             </toolkit:ContextMenu>
         </toolkit:ContextMenuService.ContextMenu>

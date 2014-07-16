@@ -14,9 +14,16 @@ namespace LostFilmReader.Controls
 {
     public partial class CommentItem : UserControl
     {
+        public event EventHandler DoQuote;
+
         public CommentItem()
         {
             InitializeComponent();
+        }
+
+        private void QuoteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            DoQuote(DataContext, new EventArgs());
         }                
     }
 }
