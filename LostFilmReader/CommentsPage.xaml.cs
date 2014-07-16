@@ -45,6 +45,7 @@ namespace LostFilmReader
         private void CommentsViewer_CommentsLoaded(object sender, EventArgs e)
         {
             var tmpChildren = ((StackPanel)CommentsViewer.ListView).Children;
+            
             foreach (Controls.CommentItem item in tmpChildren)
             {
                 item.DoQuote += QuoteMenuItem_Click;
@@ -76,6 +77,7 @@ namespace LostFilmReader
 
         private void QuoteMenuItem_Click(object sender, EventArgs e)
         {
+            // adding quote to the CommentBox
             var data = (LostFilmLibrary.News.Comment)sender;
 
             CommentBox.Text += data;
@@ -83,16 +85,19 @@ namespace LostFilmReader
 
         private async void PostCommentButton_Click(object sender, EventArgs e)
         {
+            // comment posting
             if (CommentBox.Text != null && CommentBox.Text != string.Empty)
             {
                 var result = await NewsPageModel.PostComment(Id, CommentBox.Text);
 
                 switch (result)
                 {
+                        //successful result
                     case "ok":
                         LoadComments(CommentsPosition);
                         MessageBox.Show("Комментарий успешно добавлен.");
                         break;
+                        // bad results
                     case "forbidden":
                         MessageBox.Show("Запрещено.");
                         break;

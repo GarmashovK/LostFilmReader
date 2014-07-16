@@ -277,8 +277,7 @@ namespace LostFilmLibrary.News
         {
             var deserialized = JsonConvert
                 .DeserializeObject<Dictionary<string,string>>(response_result);
-            int result;
-
+            
             if (!deserialized.ContainsKey("error"))
             {
                 return "ok";
