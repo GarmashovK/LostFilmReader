@@ -121,26 +121,42 @@ namespace LostFilmLibrary
         {
             var tempCookies = new CookieContainer();
 
-            var setCookieNodes = response.Headers
-                .First(n => n.Key == "Set-Cookie").Value;
+            var strCookies = response.Headers
+                .First(n => n.Key == "Set-Cookie").Value.ToArray()[0];
 
-            string cookieName;
-            string cookieValue;
+            Dictionary<string, string> deserializedCookies = DeserializeCookies(strCookies);
+
             var cookieUri = new Uri("http://www.lostfilm.tv/");
 
-            foreach (var item in setCookieNodes)
+            foreach (var item in deserializedCookies)
             {
-                int sign = item.IndexOf('=');
-
-                cookieName = item.Substring(0, sign);
-                cookieValue = item.Substring(sign + 1,
-                    item.IndexOf(';') - sign - 1);
-
                 tempCookies.Add(cookieUri,
-                    new Cookie(cookieName, cookieValue));                
+                    new Cookie(item.Key, item.Value));
             }
 
             return tempCookies;
+        }
+
+        private static Dictionary<string, string> DeserializeCookies(string strCookies)
+        {
+            var tmpDic = new Dictionary<string, string>();
+            strCookies = strCookies.Replace("=.", "=").Replace("HttpOnly,","");
+            
+            do{
+                var tmpStr = strCookies.Substring(0, strCookies.IndexOf(';'));
+
+                int sign = tmpStr.IndexOf('=');
+
+                var cookieName = tmpStr.Substring(0, sign);
+                var cookieValue = tmpStr.Substring(sign + 1);
+
+                tmpDic.Add(cookieName, cookieValue);
+
+                strCookies = strCookies.Substring(strCookies.IndexOf(".tv") + 3).Trim(';').Trim(',').Trim();
+
+            }while(strCookies != "");
+
+            return tmpDic;
         }
         
         //public static string GetHeaders()
