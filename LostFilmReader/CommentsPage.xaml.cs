@@ -74,7 +74,10 @@ namespace LostFilmReader
 
         private void PostCommentButton_Click(object sender, EventArgs e)
         {
-            NewsPageModel.PostComment(Id, CommentBox.Text);
+            if (CommentBox.Text != null && CommentBox.Text != string.Empty)
+                NewsPageModel.PostComment(Id, CommentBox.Text);
+            else
+                MessageBox.Show("Пустой комментарий!");
         }
 
         private void PrevButton_Click(object sender, EventArgs e)
@@ -90,14 +93,6 @@ namespace LostFilmReader
         private void RefreshButton_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void CommentBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (CommentBox.Text == "" && PostCommentButton.IsEnabled)
-                PostCommentButton.IsEnabled = false;
-            if (CommentBox.Text != null && !PostCommentButton.IsEnabled)
-                PostCommentButton.IsEnabled = true;
         }
     }
 }

@@ -245,10 +245,19 @@ namespace LostFilmLibrary.News
             var url = "http://www.lostfilm.tv/news.php";
 
             var handler = new HttpClientHandler();
-            handler.CookieContainer = new CookieContainer();
+            handler.CookieContainer = LFOptions.Cookies;
+            handler.UseCookies = true;
+            handler.UseDefaultCredentials = false;
             handler.AllowAutoRedirect = false;
 
             var client = new HttpClient(handler);
+            client.DefaultRequestHeaders.Add("Accept", "application/json, text/javascript, */*; q=0.01");
+            client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip,deflate,sdch");
+            client.DefaultRequestHeaders.Add("Accept-Language", "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
+            client.DefaultRequestHeaders.Add("X-Requested-With", "XMLHttpRequest");
+            client.DefaultRequestHeaders.Add("Origin", @"http://www.lostfilm.tv");
+            client.DefaultRequestHeaders.Add("Referer", @"http://www.lostfilm.tv/news.php?act=full&type=1&id=" + news_id.ToString());
+
             var postData = GetPostСommentData(news_id, comment);
             HttpResponseMessage response_msg = null;
 

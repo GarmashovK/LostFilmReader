@@ -17,7 +17,6 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton
-                IsEnabled="False"
                 Text="Отправить"
                 x:Name="PostCommentButton"
                 Click="PostCommentButton_Click"
@@ -50,8 +49,7 @@
             <TextBox x:Name="CommentBox"
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
-                     VerticalScrollBarVisibility="Auto"
-                     TextChanged="CommentBox_TextChanged"/>
+                     VerticalScrollBarVisibility="Auto"/>
         </StackPanel>
     </Grid>
 
