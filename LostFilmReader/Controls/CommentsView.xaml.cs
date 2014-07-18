@@ -32,25 +32,25 @@ namespace LostFilmReader.Controls
 
         private void CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            //switch (e.Action)
-            //{
-            //    case NotifyCollectionChangedAction.Add:
-            //        {
-            //            var startIndex = e.NewStartingIndex;
-            //            var count = e.NewItems.Count;
-            //            break;
-            //        }
-            //    case NotifyCollectionChangedAction.Remove:
-            //        {                        
-            //            var startIndex = e.OldStartingIndex;
-            //            var count = e.OldItems.Count;
+            switch (e.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+                    {
+                        var startIndex = e.NewStartingIndex;
+                        var count = e.NewItems.Count;
+                        break;
+                    }
+                case NotifyCollectionChangedAction.Remove:
+                    {
+                        var startIndex = e.OldStartingIndex;
+                        var count = e.OldItems.Count;
 
-            //            for (int i = 0; i < count; i++)
-            //                ListView.Children.RemoveAt(startIndex);
+                        for (int i = 0; i < count; i++)
+                            ListView.Children.RemoveAt(startIndex);
 
-            //            break;
-            //        }
-            //}
+                        break;
+                    }
+            }
         }
 
         

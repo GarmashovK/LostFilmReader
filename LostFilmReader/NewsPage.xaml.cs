@@ -39,6 +39,11 @@ namespace LostFilmReader
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadPage();
+        }
+
+        private async void LoadPage()
+        {
             SystemTray.ProgressIndicator = new ProgressIndicator();
             SystemTray.ProgressIndicator.IsVisible = true;
             SystemTray.ProgressIndicator.IsIndeterminate = true;
@@ -48,13 +53,11 @@ namespace LostFilmReader
             try
             {
                 await NewsPageModel.LoadNewsPageAsync(Id);
-                //await NewsPageModel.LoadLastCommentsAsync(Id);
                 NewsPageContent.NewsContent = NewsPageModel.PageContent;
-                //CommentsViewer.ItemsSource = NewsPageModel.Comments;
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                MessageBox.Show("Проблемы с соединением!");
             }
             SystemTray.ProgressIndicator.IsVisible = false;
         }
@@ -78,7 +81,7 @@ namespace LostFilmReader
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-
+            LoadPage();
         }
 
         private void GoToCommentButton_Click(object sender, EventArgs e)

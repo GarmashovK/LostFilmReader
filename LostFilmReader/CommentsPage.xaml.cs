@@ -38,7 +38,7 @@ namespace LostFilmReader
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             CommentsViewer.CommentsLoaded += CommentsViewer_CommentsLoaded;
-
+                        
             LoadComments(CommentsPosition);           
         }
 
@@ -54,6 +54,9 @@ namespace LostFilmReader
 
         private async void LoadComments(uint start)
         {
+            if (CommentsPosition == null)
+                CommentsPosition = 0;
+
             //----------- Загрузка комментариев
             SystemTray.ProgressIndicator = new ProgressIndicator();
             SystemTray.ProgressIndicator.IsVisible = true;
@@ -61,8 +64,14 @@ namespace LostFilmReader
 
             try
             {
+                NewsPageModel.Comments.Clear();
                 NumOfComments = await NewsPageModel.LoadCommentsAsync(Id, start);
                 CommentsViewer.ItemsSource = NewsPageModel.Comments;
+
+                if (CommentsPosition + 20 > NumOfComments)
+                    ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = false;
+                if (CommentsPosition < 20)
+                    ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
             }
             catch (Exception exc)
             {
@@ -131,17 +140,36 @@ namespace LostFilmReader
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            CommentsPosition += 20;
+            if (CommentsPosition >= 20 && CommentsPosition <= NumOfComments)
+            {
+                if (CommentsPosition == 20)
+                {
+                    ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
+                    ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = true;
+                }
+                CommentsPosition -= 20;
+                LoadComments(CommentsPosition);
+            }
+            else
+                ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-
+            if (CommentsPosition + 20 < NumOfComments)
+            {
+                if (CommentsPosition == 0)
+                    ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = true;
+                CommentsPosition += 20;
+                LoadComments(CommentsPosition);
+            }
+            else
+                ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = false;
         }
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-
+            LoadComments(CommentsPosition);
         }
     }
 }
