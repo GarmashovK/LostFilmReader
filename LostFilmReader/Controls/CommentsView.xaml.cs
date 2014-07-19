@@ -70,14 +70,14 @@ namespace LostFilmReader.Controls
             {
                 var commentItem = new CommentItem();
                 commentItem.DataContext = item;
-                //try
-                //{
+                try
+                {
                     commentItem.ImageBox.Source = new BitmapImage(new Uri(item.Image));
-                //}
-                //catch (UriFormatException e)
-                //{
-                //    commentItem.ImageBox.Source = new BitmapImage(new Uri("http://www.lostfilm.tv/Tmpl/LostFilm/img/avatar.gif"));
-                //}
+                }
+                catch (UriFormatException e)
+                {
+                    commentItem.ImageBox.Source = new BitmapImage(new Uri("http://www.lostfilm.tv/Tmpl/LostFilm/img/avatar.gif"));
+                }
                 commentItem.NickNameTextBox.Text = item.UserName;
                 commentItem.DateBox.Text = item.Date.ToString();
                 commentItem.Margin = new Thickness(0, 5, 0, 5);

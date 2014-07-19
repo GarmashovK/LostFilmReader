@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 
 namespace LostFilmReader
 {
@@ -14,7 +15,7 @@ namespace LostFilmReader
     {
         private uint Id { get; set; }
         private string Link { get; set; }
-        private uint NumOfComments { get; set; }
+        private uint NumOfPage { get; set; }
         private uint CommentsPosition { get; set; }
         private LostFilmLibrary.News.NewsPage NewsPageModel { get; set; }
 
@@ -23,7 +24,6 @@ namespace LostFilmReader
             InitializeComponent();
 
             NewsPageModel = new LostFilmLibrary.News.NewsPage();
-            CommentsPosition = 0;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -38,8 +38,9 @@ namespace LostFilmReader
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             CommentsViewer.CommentsLoaded += CommentsViewer_CommentsLoaded;
-                        
-            LoadComments(CommentsPosition);           
+
+            CommentsPosition = 0;
+            await LoadComments();           
         }
 
         private void CommentsViewer_CommentsLoaded(object sender, EventArgs e)
@@ -52,35 +53,37 @@ namespace LostFilmReader
             }
         }
 
-        private async void LoadComments(uint start)
+        private async Task LoadComments()
         {
-            if (CommentsPosition == null)
-                CommentsPosition = 0;
-
             //----------- Загрузка комментариев
             SystemTray.ProgressIndicator = new ProgressIndicator();
             SystemTray.ProgressIndicator.IsVisible = true;
             SystemTray.ProgressIndicator.IsIndeterminate = true;
 
+            uint tmpNumOfComments;
+
             try
             {
                 NewsPageModel.Comments.Clear();
-                NumOfComments = await NewsPageModel.LoadCommentsAsync(Id, start);
+                tmpNumOfComments = await NewsPageModel.LoadCommentsAsync(Id, CommentsPosition * 20);
                 CommentsViewer.ItemsSource = NewsPageModel.Comments;
+                NumOfPage = tmpNumOfComments / 20;
+                if (tmpNumOfComments % 20 > 0)
+                    NumOfPage++;
 
-                if (CommentsPosition + 20 > NumOfComments)
+                if (CommentsPosition == NumOfPage)
                     ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = false;
-                if (CommentsPosition < 20)
+                if (CommentsPosition == 0)
                     ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
+
+                CommentsPositionBlock.Text = (CommentsPosition + 1).ToString() + '/' + NumOfPage.ToString()
+                    + '(' + tmpNumOfComments.ToString() + ')';
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
             SystemTray.ProgressIndicator.IsVisible = false;
-
-            CommentsPositionBlock.Text = CommentsPosition.ToString() + '/' + NumOfComments.ToString();
-            
             //----------- Окончание загрузки
         }
 
@@ -103,7 +106,7 @@ namespace LostFilmReader
                 {
                         //successful result
                     case "ok":
-                        LoadComments(CommentsPosition);
+                        await LoadComments();
                         MessageBox.Show("Комментарий успешно добавлен.");
                         break;
                         // bad results
@@ -138,38 +141,35 @@ namespace LostFilmReader
                 MessageBox.Show("Пустой комментарий!");
         }
 
-        private void PrevButton_Click(object sender, EventArgs e)
+        private async void PrevButton_Click(object sender, EventArgs e)
         {
-            if (CommentsPosition >= 20 && CommentsPosition <= NumOfComments)
-            {
-                if (CommentsPosition == 20)
-                {
-                    ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
-                    ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = true;
-                }
-                CommentsPosition -= 20;
-                LoadComments(CommentsPosition);
-            }
-            else
-                ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
-        }
+            if (CommentsPosition >= 0 && CommentsPosition <= NumOfPage)
+            {                
+                CommentsPosition--;
+                await LoadComments();
 
-        private void NextButton_Click(object sender, EventArgs e)
-        {
-            if (CommentsPosition + 20 < NumOfComments)
-            {
                 if (CommentsPosition == 0)
-                    ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = true;
-                CommentsPosition += 20;
-                LoadComments(CommentsPosition);
+                    ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
+                ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = true;
             }
-            else
-                ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = false;
         }
 
-        private void RefreshButton_Click(object sender, EventArgs e)
+        private async void NextButton_Click(object sender, EventArgs e)
         {
-            LoadComments(CommentsPosition);
+            if (CommentsPosition + 1 < NumOfPage)
+            {               
+                CommentsPosition++;
+                await LoadComments();
+
+                if (CommentsPosition + 1 == NumOfPage)
+                    ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = false;
+                ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = true;
+            }
+        }
+
+        private async void RefreshButton_Click(object sender, EventArgs e)
+        {
+            await LoadComments();
         }
     }
 }
