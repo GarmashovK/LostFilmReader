@@ -187,7 +187,7 @@ namespace LostFilmLibrary.News
                 
         public async Task<uint> LoadCommentsAsync(uint id, uint start)
         {
-            var url = CommonUrl + id + "&o=" + start;
+            var url = CommonUrl + id + "&o=" + start + "&nocache=" + new System.Random().NextDouble();
                 
             var page = await Common.GetPage(url);
 
@@ -259,15 +259,9 @@ namespace LostFilmLibrary.News
             client.DefaultRequestHeaders.Add("Referer", @"http://www.lostfilm.tv/news.php?act=full&type=1&id=" + news_id.ToString());
 
             var postData = GetPostСommentData(news_id, comment);
-            HttpResponseMessage response_msg = null;
-
-            try
-            {
-                response_msg = await client.PostAsync(url, postData);
-                response_msg.EnsureSuccessStatusCode();
-            }
-            finally { }
-
+            HttpResponseMessage response_msg = await client.PostAsync(url, postData);
+            response_msg.EnsureSuccessStatusCode();
+            
             var response_result = await response_msg.Content.ReadAsStringAsync();
             
             return DeserializeResponse(response_result);

@@ -1,8 +1,9 @@
-﻿<xapCache source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\LostFilmReader_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="19.07.2014 12:22:41">
-  <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Debug\LostFilmReader.dll" archivePath="LostFilmReader.dll" lastWriteTime="19.07.2014 12:20:21" />
+﻿<xapCache source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\LostFilmReader_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="19.07.2014 17:31:38">
+  <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Debug\LostFilmReader.dll" archivePath="LostFilmReader.dll" lastWriteTime="19.07.2014 17:31:36" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="21.02.2014 22:58:32" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Assets\AppBarIcons\edit.png" archivePath="Assets\AppBarIcons\edit.png" lastWriteTime="15.04.2014 20:13:04" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Assets\AppBarIcons\play.png" archivePath="Assets\AppBarIcons\play.png" lastWriteTime="01.01.2013 18:57:00" />
+  <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="21.02.2014 22:58:32" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Assets\AppBarIcons\back.png" archivePath="Assets\AppBarIcons\back.png" lastWriteTime="20.04.2014 21:34:43" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Assets\AppBarIcons\next.png" archivePath="Assets\AppBarIcons\next.png" lastWriteTime="20.04.2014 21:34:43" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Assets\AppBarIcons\refresh.png" archivePath="Assets\AppBarIcons\refresh.png" lastWriteTime="20.04.2014 21:34:43" />
@@ -19,8 +20,7 @@
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="12.07.2014 17:55:58" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="12.07.2014 17:55:58" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="15.07.2014 20:30:45" />
-  <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="21.02.2014 22:58:32" />
-  <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\LostFilmLibrary.dll" archivePath="LostFilmLibrary.dll" lastWriteTime="18.07.2014 11:44:28" />
+  <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\LostFilmLibrary.dll" archivePath="LostFilmLibrary.dll" lastWriteTime="19.07.2014 17:31:35" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="15.07.2014 19:39:06" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.dll" archivePath="Microsoft.Threading.Tasks.dll" lastWriteTime="15.07.2014 20:28:30" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.Extensions.dll" archivePath="Microsoft.Threading.Tasks.Extensions.dll" lastWriteTime="15.07.2014 20:28:30" />
@@ -38,5 +38,5 @@
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\Newtonsoft.Json.xml" archivePath="Newtonsoft.Json.xml" lastWriteTime="15.07.2014 19:39:40" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibrary\bin\Debug\System.Net.Http.Primitives.xml" archivePath="System.Net.Http.Primitives.xml" lastWriteTime="15.07.2014 20:30:23" />
   <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Assets\LFLogo.png" archivePath="Assets\LFLogo.png" lastWriteTime="31.10.2013 15:39:48" />
-  <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="19.07.2014 12:20:23" />
+  <file source="C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="19.07.2014 16:10:19" />
 </xapCache>

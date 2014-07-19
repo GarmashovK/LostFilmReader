@@ -121,8 +121,18 @@ namespace LostFilmReader
             if (!System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings.Contains("IsAuthorized") ||
                 (bool)System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings["IsAuthorized"] == false)
             {
-                NavigationService.Navigate(new Uri("/LoginPage.xaml", UriKind.Relative));
+                GoToLoginPage();
             }
-        }            
+        }
+
+        private void LogoutItem_Click(object sender, EventArgs e)
+        {
+            GoToLoginPage();
+        }
+
+        private void GoToLoginPage()
+        {
+            NavigationService.Navigate(new Uri("/LoginPage.xaml", UriKind.Relative));
+        }
     }
 }

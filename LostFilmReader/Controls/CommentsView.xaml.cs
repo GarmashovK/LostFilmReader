@@ -74,7 +74,7 @@ namespace LostFilmReader.Controls
                 {
                     commentItem.ImageBox.Source = new BitmapImage(new Uri(item.Image));
                 }
-                catch (UriFormatException e)
+                catch (UriFormatException)
                 {
                     commentItem.ImageBox.Source = new BitmapImage(new Uri("http://www.lostfilm.tv/Tmpl/LostFilm/img/avatar.gif"));
                 }

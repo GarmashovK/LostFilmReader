@@ -44,10 +44,10 @@ namespace LostFilmReader
                 settings["IsAuthorized"] = true;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 settings["IsAuthorized"] = false;
-                MessageBox.Show(exc.Message);
+                MessageBox.Show("Проблемы с соединением!");
             }
 
             settings.Save();
@@ -86,6 +86,17 @@ namespace LostFilmReader
                 strCookies = strCookies.Substring(strCookies.IndexOf(';') + 1);
 
             } while (strCookies.Length != 0);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            try
+            {
+                while (1)
+                    NavigationService.RemoveBackEntry();
+            }
         }
     }
 }

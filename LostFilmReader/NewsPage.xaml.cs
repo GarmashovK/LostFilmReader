@@ -10,6 +10,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using LostFilmLibrary;
 using LostFilmLibrary.News;
+using System.Threading.Tasks;
 
 namespace LostFilmReader
 {
@@ -39,10 +40,10 @@ namespace LostFilmReader
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadPage();
+            await LoadPage();
         }
 
-        private async void LoadPage()
+        private async Task LoadPage()
         {
             SystemTray.ProgressIndicator = new ProgressIndicator();
             SystemTray.ProgressIndicator.IsVisible = true;
@@ -55,7 +56,7 @@ namespace LostFilmReader
                 await NewsPageModel.LoadNewsPageAsync(Id);
                 NewsPageContent.NewsContent = NewsPageModel.PageContent;
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 MessageBox.Show("Проблемы с соединением!");
             }
@@ -79,9 +80,9 @@ namespace LostFilmReader
 
         //}
 
-        private void RefreshButton_Click(object sender, EventArgs e)
+        private async void RefreshButton_Click(object sender, EventArgs e)
         {
-            LoadPage();
+            await LoadPage();
         }
 
         private void GoToCommentButton_Click(object sender, EventArgs e)

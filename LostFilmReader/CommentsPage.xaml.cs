@@ -106,6 +106,7 @@ namespace LostFilmReader
                 {
                         //successful result
                     case "ok":
+                        CommentsPosition = NumOfPage - 1;
                         await LoadComments();
                         MessageBox.Show("Комментарий успешно добавлен.");
                         break;
