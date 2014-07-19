@@ -6,7 +6,7 @@
     <Language code="ru-RU" />
   </Languages>
   <App xmlns="" ProductID="{ab301737-bbfd-4ba4-9807-3a1dfef295e6}" Title="LostFilmReader" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="LostFilmReader author" Description="Sample description" Publisher="LostFilmReader" PublisherID="{c8c7e4c2-6879-475c-8837-ec5d49bc4ae5}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">Assets\LFLogo.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
