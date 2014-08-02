@@ -29,7 +29,7 @@ namespace LostFilmReader
                 MessageBox.Show("Заполните поля");
                 return;
             }
-
+            
             SystemTray.ProgressIndicator = new ProgressIndicator();
             SystemTray.ProgressIndicator.IsVisible = true;
             SystemTray.ProgressIndicator.IsIndeterminate = true;
@@ -47,7 +47,7 @@ namespace LostFilmReader
             catch (Exception)
             {
                 settings["IsAuthorized"] = false;
-                MessageBox.Show("Проблемы с соединением!");
+                MessageBox.Show("Проблемы с соединением! Или неправильный логин/пароль.");
             }
 
             settings.Save();
@@ -91,12 +91,14 @@ namespace LostFilmReader
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            IsolatedStorageSettings.ApplicationSettings["IsAuthorized"] = false;
 
             try
             {
-                while (1)
+                while (NavigationService.BackStack.Count() != 0)
                     NavigationService.RemoveBackEntry();
             }
+            catch (Exception) { }
         }
     }
 }
