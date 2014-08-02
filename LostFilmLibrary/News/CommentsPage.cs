@@ -1,8 +1,10 @@
 ﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,7 +40,7 @@ namespace LostFilmLibrary.News
             foreach (var item in comments)
                 Comments.Add(item);
 
-            SecurityKey = GetSecure(mid);
+            SecurityKey = Common.GetSecure(mid);
 
             return NumOfComments;
         }
@@ -52,8 +54,8 @@ namespace LostFilmLibrary.News
             var doc = new HtmlDocument();
             doc.LoadHtml(page);
 
-            var mid = GetMid(doc);
-            NumOfComments = GetNumOfComments(GetContentBody(mid));
+            var mid = Common.GetMid(doc);
+            NumOfComments = GetNumOfComments(Common.GetContentBody(mid));
             if (NumOfComments <= 20)
                 return await LoadCommentsAsync(id, 0);
             else
@@ -148,7 +150,7 @@ namespace LostFilmLibrary.News
                                                            "background:#E8E8E8;height:35px;vertical-align:middle;float:left;width:150px;margin-right:2px;text-align:center;padding:5px 0 0")
                                 .ChildNodes.FindFirst("span").InnerText;
                     comment.Date =
-                        DateTime.ParseExact(temp, "dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture);
+                        DateTime.ParseExact(temp, "dd.MM.yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
                     comment.ID = GetId(n.Attributes["id"].Value);
                     comment.Content =
                         GetCommentContent(
@@ -160,6 +162,13 @@ namespace LostFilmLibrary.News
 
                     return comment;
                 });
+        }
+
+        private uint GetId(string value)
+        {
+            var startPos = value.LastIndexOf('_') + 1;
+
+            return uint.Parse(value.Substring(startPos));
         }
 
         private CommentContent GetCommentContent(HtmlNode content)

@@ -41,6 +41,8 @@
     <Compile Include="Common.cs" />
     <Compile Include="LFOptions.cs" />
     <Compile Include="News\Comment.cs" />
+    <Compile Include="News\CommentItems.cs" />
+    <Compile Include="News\CommentsPage.cs" />
     <Compile Include="News\NewsItem.cs" />
     <Compile Include="News\NewsLoader.cs" />
     <Compile Include="News\NewsPage.cs" />

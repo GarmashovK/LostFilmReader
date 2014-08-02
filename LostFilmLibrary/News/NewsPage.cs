@@ -110,7 +110,7 @@ namespace LostFilmLibrary.News
             //    Comments.Add(item);
 
             Title = GetTitle(mid);
-            var contentBody = GetContentBody(mid);
+            var contentBody = Common.GetContentBody(mid);
             var content = GetContent(contentBody);
 
             PageContent = GetPageContent(content);
@@ -181,14 +181,7 @@ namespace LostFilmLibrary.News
 
             return item;
         }
-
-        private uint GetId(string value)
-        {
-            var startPos = value.LastIndexOf('_') + 1;
-
-            return uint.Parse(value.Substring(startPos));
-        }
-        
+                
         private DateTime GetTime(IEnumerable<HtmlNode> contentBody)
         {
             var p =

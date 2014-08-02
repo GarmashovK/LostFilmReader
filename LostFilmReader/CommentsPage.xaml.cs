@@ -17,13 +17,16 @@ namespace LostFilmReader
         private string Link { get; set; }
         private uint NumOfPage { get; set; }
         private uint CommentsPosition { get; set; }
-        private LostFilmLibrary.News.NewsPage NewsPageModel { get; set; }
+        private LostFilmLibrary.News.CommentsPage CommentsPageModel { get; set; }
+
+        private ApplicationBarIconButton NextButton;
+        private ApplicationBarIconButton PrevButton;
 
         public CommentsPage()
         {
             InitializeComponent();
 
-            NewsPageModel = new LostFilmLibrary.News.NewsPage();
+            CommentsPageModel = new LostFilmLibrary.News.CommentsPage();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -38,9 +41,11 @@ namespace LostFilmReader
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             CommentsViewer.CommentsLoaded += CommentsViewer_CommentsLoaded;
+            PrevButton = (ApplicationBarIconButton)ApplicationBar.Buttons[1];
+            NextButton = (ApplicationBarIconButton)ApplicationBar.Buttons[3];
 
             CommentsPosition = 0;
-            await LoadComments();           
+            await LoadComments();
         }
 
         private void CommentsViewer_CommentsLoaded(object sender, EventArgs e)
@@ -64,17 +69,17 @@ namespace LostFilmReader
 
             try
             {
-                NewsPageModel.Comments.Clear();
-                tmpNumOfComments = await NewsPageModel.LoadCommentsAsync(Id, CommentsPosition * 20);
-                CommentsViewer.ItemsSource = NewsPageModel.Comments;
+                CommentsPageModel.Comments.Clear();
+                tmpNumOfComments = await CommentsPageModel.LoadCommentsAsync(Id, CommentsPosition * 20);
+                CommentsViewer.ItemsSource = CommentsPageModel.Comments;
                 NumOfPage = tmpNumOfComments / 20;
                 if (tmpNumOfComments % 20 > 0)
                     NumOfPage++;
 
                 if (CommentsPosition == NumOfPage)
-                    ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = false;
+                    NextButton.IsEnabled = false;
                 if (CommentsPosition == 0)
-                    ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
+                    PrevButton.IsEnabled = false;
 
                 CommentsPositionBlock.Text = (CommentsPosition + 1).ToString() + '/' + NumOfPage.ToString()
                     + '(' + tmpNumOfComments.ToString() + ')';
@@ -100,7 +105,7 @@ namespace LostFilmReader
             // comment posting
             if (CommentBox.Text != null && CommentBox.Text != string.Empty)
             {
-                var result = await NewsPageModel.PostComment(Id, CommentBox.Text);
+                var result = await CommentsPageModel.PostComment(Id, CommentBox.Text);
 
                 switch (result)
                 {
@@ -150,8 +155,8 @@ namespace LostFilmReader
                 await LoadComments();
 
                 if (CommentsPosition == 0)
-                    ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = false;
-                ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = true;
+                    PrevButton.IsEnabled = false;
+                NextButton.IsEnabled = true;
             }
         }
 
@@ -163,8 +168,8 @@ namespace LostFilmReader
                 await LoadComments();
 
                 if (CommentsPosition + 1 == NumOfPage)
-                    ((ApplicationBarIconButton)ApplicationBar.Buttons[3]).IsEnabled = false;
-                ((ApplicationBarIconButton)ApplicationBar.Buttons[1]).IsEnabled = true;
+                    NextButton.IsEnabled = false;
+                PrevButton.IsEnabled = true;
             }
         }
 

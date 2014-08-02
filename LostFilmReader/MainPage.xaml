@@ -77,7 +77,6 @@
                                 Grid.Column="1"
                                 Text="{Binding Title}" 
                                 Style="{StaticResource MySubtitleStyle}" Margin="10"/>
-
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
