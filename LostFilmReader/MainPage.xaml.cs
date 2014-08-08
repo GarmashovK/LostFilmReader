@@ -29,7 +29,7 @@ namespace LostFilmReader
             // Пример кода для локализации ApplicationBar
             //BuildLocalizedApplicationBar();
 
-            ((ApplicationBarIconButton)ApplicationBar.Buttons[2]).IsEnabled = false;            
+            //((ApplicationBarIconButton)ApplicationBar.Buttons[2]).IsEnabled = false;            
         }
 
         // Пример кода для сборки локализованной панели ApplicationBar
@@ -74,6 +74,7 @@ namespace LostFilmReader
             }
             catch (Exception exception)
             {
+                counter -= 10;
                 MessageBox.Show(exception.Message);
             }
 
@@ -87,31 +88,24 @@ namespace LostFilmReader
                 NavigationService.Navigate(new Uri("/NewsPage.xaml" + "?Title=" + item.Title + "&Link=" + item.Link, UriKind.Relative));
         }
 
-        private async void NextButton_Click(object sender, EventArgs e)
-        {
-            if (counter >= 10)
-            {
-                counter -= 10;
-                if (counter == 0) ((ApplicationBarIconButton)ApplicationBar.Buttons[2]).IsEnabled = false;
-            }
-            else return;
+        //private async void NextButton_Click(object sender, EventArgs e)
+        //{
+        //    if (counter >= 10)
+        //    {
+        //        counter -= 10;
+        //        if (counter == 0) ((ApplicationBarIconButton)ApplicationBar.Buttons[2]).IsEnabled = false;
+        //    }
+        //    else return;
 
-            _newsLoader.NewsList.Clear();
-            await LoadNewsList();
-        }
-
-        private async void RefreshButton_Click(object sender, EventArgs e)
-        {
-            _newsLoader.NewsList.Clear();
-            await LoadNewsList();
-        }
-
+        //    _newsLoader.NewsList.Clear();
+        //    await LoadNewsList();
+        //}
+        
         private async void PrevButton_Click(object sender, EventArgs e)
         {
-            if (counter == 0)
-                ((ApplicationBarIconButton)ApplicationBar.Buttons[2]).IsEnabled = true;
+            //if (counter == 0)
+            //    ((ApplicationBarIconButton)ApplicationBar.Buttons[2]).IsEnabled = true;
             counter += 10;
-            _newsLoader.NewsList.Clear();
 
             await LoadNewsList();
         }

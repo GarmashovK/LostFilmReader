@@ -17,8 +17,8 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar BackgroundColor="Transparent">
             <shell:ApplicationBarIconButton x:Name="PrevButton" IconUri="Assets/AppBarIcons/back.png" Text="Предыдущие" Click="PrevButton_Click"/>
-            <shell:ApplicationBarIconButton x:Name="RefreshButton" IconUri="Assets/AppBarIcons/refresh.png" Text="Обновить" Click="RefreshButton_Click"/>
-            <shell:ApplicationBarIconButton x:Name="NextButton" IconUri="Assets/AppBarIcons/next.png" Text="Следующие" Click="NextButton_Click"/>
+            <!--<shell:ApplicationBarIconButton x:Name="RefreshButton" IconUri="Assets/AppBarIcons/refresh.png" Text="Обновить" Click="RefreshButton_Click"/>-->
+            <!--<shell:ApplicationBarIconButton x:Name="NextButton" IconUri="Assets/AppBarIcons/next.png" Text="Следующие" Click="NextButton_Click"/>-->
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem x:Name="LogoutItem" Text="Выход" Click="LogoutItem_Click"/>
             </shell:ApplicationBar.MenuItems>
