@@ -36,8 +36,8 @@
                      />
 
         <Button Content="Войти" Name="LoginButton"
-                        Click="LoginButton_OnClick"
-                        Grid.Row="3" Grid.Column="1"/>
+                        Click="LoginButton_OnClick"/>
+        <HyperlinkButton NavigateUri="http://bogi.ru/auth/registration">Регистрация</HyperlinkButton>
 
     </StackPanel>
 
