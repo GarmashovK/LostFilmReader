@@ -15,7 +15,8 @@ namespace LostFilmLibrary
         public static async Task<string> GetPage(string url)
         {
             var handler = new HttpClientHandler();
-            handler.CookieContainer = LFOptions.Cookies;
+            if (LFOptions.Cookies != null)
+                handler.CookieContainer = LFOptions.Cookies;
 
             var client = new HttpClient(
                 handler
