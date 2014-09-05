@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LostFilmLibrary.Serials
 {
-    class SerialItem
+    public class SerialItem
     {
+        public string Url { get; set; }
         public string Name { get; set; }
         public string OriginalName { get; set; }
     }
