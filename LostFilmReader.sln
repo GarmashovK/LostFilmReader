@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostFilmReaderWP", "LostFilmReader\LostFilmReaderWP.csproj", "{AB301737-BBFD-4BA4-9807-3A1DFEF295E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostFilmLibrary", "LostFilmLibrary\LostFilmLibrary.csproj", "{04C81969-8C71-4DD9-999B-2E75E0BE78DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostFilmLibraryTest", "LostFilmLibraryTest\LostFilmLibraryTest.csproj", "{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,14 @@ Global
 		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Release|ARM.ActiveCfg = Release|Any CPU
 		{04C81969-8C71-4DD9-999B-2E75E0BE78DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}.Release|ARM.ActiveCfg = Release|Any CPU
+		{47755B89-0EDB-4300-9B02-3BFEF5C87FC0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
