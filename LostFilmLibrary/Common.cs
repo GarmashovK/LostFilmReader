@@ -56,7 +56,7 @@ namespace LostFilmLibrary
 
         internal static HtmlNodeCollection GetMid(HtmlDocument doc)
         {
-            return doc.DocumentNode.Descendants()
+            var mid = doc.DocumentNode.Descendants()
                 .First(n => n.Name == "body").ChildNodes
                 .First(n => n.Name == "div" && n.Attributes.Contains("id") && n.Attributes["id"].Value == "MainDiv")
                 .ChildNodes
@@ -65,10 +65,16 @@ namespace LostFilmLibrary
                 .First(
                     n =>
                         n.Name == "div" && n.Attributes.Contains("style") &&
-                        n.Attributes["style"].Value == "width:498px;padding:0 6px 0 6px;float:left;margin:0px;")
+                        n.Attributes["style"].Value == "width:497px;padding:0 6px 0 6px;float:left;margin:0px;")
+                        .ChildNodes
+                .First(
+                    n =>
+                        n.Name == "div" && n.Attributes.Contains("style") &&
+                        n.Attributes["style"].Value == "box-shadow: 0px 0px 2px rgba(0,0,0,0.3);border-radius:5px")
                 .ChildNodes
                 .First(n => n.Name == "div" && n.Attributes.Contains("class") && n.Attributes["class"].Value == "mid")
                 .ChildNodes;
+            return mid;
         }
 
         internal static string ReplaceSomeSymbols(string str)
