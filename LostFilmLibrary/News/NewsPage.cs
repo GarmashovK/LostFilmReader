@@ -117,6 +117,21 @@ namespace LostFilmLibrary.News
             PublicationTime = GetTime(contentBody);
         }
 
+        public async Task LoadNewsPageAsync(HtmlNodeCollection mid)
+        {
+            //var comments = GetComments(mid);
+            //foreach (var item in comments)
+            //    Comments.Add(item);
+
+            Title = GetTitle(mid);
+            var contentBody = Common.GetContentBody(mid);
+            var content = GetContent(contentBody);
+
+            PageContent = GetPageContent(content);
+            PublicationTime = GetTime(contentBody);
+        }
+
+
         private NewsPageContent GetPageContent(IEnumerable<HtmlNode> content)
         {
             var pageContent = new NewsPageContent();
