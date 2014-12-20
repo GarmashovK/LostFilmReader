@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="LostFilmReader.Controls.NewsListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+             Loaded="View_Loaded">
+    
+    <Grid x:Name="LayoutRoot">
+        <ListBox x:Name="NewsList"
+                         SelectionMode="Single">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image
+                                Grid.Column="0"
+                                VerticalAlignment="Center" HorizontalAlignment="Center"
+                                Source="{Binding Image}" 
+                                Width="120" Height="75" />
+                        <TextBlock
+                                Grid.Column="1"
+                                Text="{Binding Title}" 
+                                Style="{StaticResource MySubtitleStyle}" Margin="10"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

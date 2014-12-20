@@ -102,6 +102,9 @@
     <Compile Include="Controls\CommentsView.xaml.cs">
       <DependentUpon>CommentsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NewsListView.xaml.cs">
+      <DependentUpon>NewsListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NewsPageView.xaml.cs">
       <DependentUpon>NewsPageView.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\CommentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NewsListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -58,7 +58,10 @@
         
         <phone:Pivot Name="MyPivot" Title="Новости">
             <phone:PivotItem Header="LostFilm">
-                <ListBox x:Name="NewsListView"
+                <citem:NewsListView Name="NewsList" Background="Transparent">
+                    
+                </citem:NewsListView>
+                <!--<ListBox x:Name="NewsListView"
                          SelectionMode="Single"
                          Tap="NewsListView_Tap">
                     <ListBox.ItemTemplate>
@@ -80,8 +83,8 @@
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                </ListBox>
-            </phone:PivotItem>            
+                </ListBox>-->
+            </phone:PivotItem>           
             
         </phone:Pivot>
         

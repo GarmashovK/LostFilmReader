@@ -17,15 +17,15 @@ namespace LostFilmReader
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private NewsLoader _newsLoader { get; set; }
-        private uint counter { get; set; }
+        
+
         // Конструктор
         public MainPage()
         {
             InitializeComponent();
 
-            _newsLoader = new NewsLoader();
-            counter = 0;
+            //_newsLoader = new NewsLoader();
+            //counter = 0;
             // Пример кода для локализации ApplicationBar
             //BuildLocalizedApplicationBar();
 
@@ -55,35 +55,36 @@ namespace LostFilmReader
             NavigationService.RemoveBackEntry();
 
             //NextButton.IsEnabled = false
-            if (NewsListView.ItemsSource != null || 
+            if (NewsList.NewsList.ItemsSource != null || 
                 !System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings.Contains("IsAuthorized") ||
                 (bool)System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings["IsAuthorized"] == false) return;
-            NewsListView.ItemsSource = _newsLoader.NewsList;
-            await LoadNewsList();
+            //NewsListView.ItemsSource = _newsLoader.NewsList;
+            //await LoadNewsList();
+            NewsList.LoadNewsList();
         }
 
 
-        private async System.Threading.Tasks.Task LoadNewsList()
-        {
-            SystemTray.ProgressIndicator = new ProgressIndicator();
-            SystemTray.ProgressIndicator.IsVisible = true;
-            SystemTray.ProgressIndicator.IsIndeterminate = true;
-            try
-            {
-                await _newsLoader.LoadNewsAsync(counter);
-            }
-            catch (Exception exception)
-            {
-                counter -= 10;
-                MessageBox.Show(exception.Message);
-            }
+        //private async System.Threading.Tasks.Task LoadNewsList()
+        //{
+        //    SystemTray.ProgressIndicator = new ProgressIndicator();
+        //    SystemTray.ProgressIndicator.IsVisible = true;
+        //    SystemTray.ProgressIndicator.IsIndeterminate = true;
+        //    try
+        //    {
+        //        await _newsLoader.LoadNewsAsync(counter);
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        counter -= 10;
+        //        MessageBox.Show(exception.Message);
+        //    }
 
-            SystemTray.ProgressIndicator.IsVisible = false;
-        }
-        
+        //    SystemTray.ProgressIndicator.IsVisible = false;
+        //}
+
         private void NewsListView_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            var item = (NewsItem)NewsListView.SelectedItem;
+            var item = (NewsItem)NewsList.NewsList.SelectedItem;
             if (item != null)
                 NavigationService.Navigate(new Uri("/NewsPage.xaml" + "?Title=" + item.Title + "&Link=" + item.Link, UriKind.Relative));
         }
@@ -105,9 +106,10 @@ namespace LostFilmReader
         {
             //if (counter == 0)
             //    ((ApplicationBarIconButton)ApplicationBar.Buttons[2]).IsEnabled = true;
-            counter += 10;
+            //counter += 10;
 
-            await LoadNewsList();
+            //await LoadNewsList();
+            NewsList.LoadNextPage();
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
@@ -116,6 +118,10 @@ namespace LostFilmReader
                 (bool)System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings["IsAuthorized"] == false)
             {
                 GoToLoginPage();
+            }
+            else
+            {
+                NewsList.NewsList.Tap += NewsListView_Tap;
             }
         }
 
