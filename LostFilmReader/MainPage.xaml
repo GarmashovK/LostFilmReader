@@ -20,7 +20,8 @@
             <!--<shell:ApplicationBarIconButton x:Name="RefreshButton" IconUri="Assets/AppBarIcons/refresh.png" Text="Обновить" Click="RefreshButton_Click"/>-->
             <!--<shell:ApplicationBarIconButton x:Name="NextButton" IconUri="Assets/AppBarIcons/next.png" Text="Следующие" Click="NextButton_Click"/>-->
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem x:Name="LogoutItem" Text="Выход" Click="LogoutItem_Click"/>
+                <shell:ApplicationBarMenuItem x:Name="SerialsListBtn" Text="Список сериалов" Click="SerialsListBtn_Click"/>
+                <shell:ApplicationBarMenuItem x:Name="LogoutItem" Text="Выход" Click="LogoutItem_Click"/>                
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
@@ -58,9 +59,7 @@
         
         <phone:Pivot Name="MyPivot" Title="Новости">
             <phone:PivotItem Header="LostFilm">
-                <citem:NewsListView Name="NewsList" Background="Transparent">
-                    
-                </citem:NewsListView>
+                <citem:NewsListView Name="NewsList" Background="Transparent"/>
                 <!--<ListBox x:Name="NewsListView"
                          SelectionMode="Single"
                          Tap="NewsListView_Tap">
@@ -84,8 +83,7 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>-->
-            </phone:PivotItem>           
-            
+            </phone:PivotItem>
         </phone:Pivot>
         
         <!--Раскомментируйте, чтобы увидеть сетку выравнивания и выровнять

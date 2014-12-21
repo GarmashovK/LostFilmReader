@@ -60,7 +60,6 @@ namespace LostFilmReader
                 (bool)System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings["IsAuthorized"] == false) return;
             //NewsListView.ItemsSource = _newsLoader.NewsList;
             //await LoadNewsList();
-            NewsList.LoadNewsList();
         }
 
 
@@ -122,6 +121,7 @@ namespace LostFilmReader
             else
             {
                 NewsList.NewsList.Tap += NewsListView_Tap;
+                NewsList.LoadNewsList();
             }
         }
 
@@ -133,6 +133,11 @@ namespace LostFilmReader
         private void GoToLoginPage()
         {
             NavigationService.Navigate(new Uri("/LoginPage.xaml", UriKind.Relative));
+        }
+
+        private void SerialsListBtn_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/SerialsPage.xaml", UriKind.Relative));
         }
     }
 }

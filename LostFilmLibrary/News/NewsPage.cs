@@ -89,7 +89,6 @@ namespace LostFilmLibrary.News
         {
             //Comments = new ObservableCollection<Comment>();
         }
-               
 
         public async Task LoadNewsPageAsync(uint id)
         {
@@ -116,21 +115,6 @@ namespace LostFilmLibrary.News
             PageContent = GetPageContent(content);
             PublicationTime = GetTime(contentBody);
         }
-
-        public void SetNews(HtmlNodeCollection mid)
-        {
-            //var comments = GetComments(mid);
-            //foreach (var item in comments)
-            //    Comments.Add(item);
-
-            Title = GetTitle(mid);
-            var contentBody = Common.GetContentBody(mid);
-            var content = GetContent(contentBody);
-
-            PageContent = GetPageContent(content);
-            PublicationTime = GetTime(contentBody);
-        }
-
 
         private NewsPageContent GetPageContent(IEnumerable<HtmlNode> content)
         {

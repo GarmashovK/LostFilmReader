@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 
 namespace LostFilmLibrary.News
 {
-
     public class NewsLoader
     {
         public ObservableCollection<NewsItem> NewsList { get; set; }
@@ -39,6 +36,28 @@ namespace LostFilmLibrary.News
 
             const string lostfilmLink = "http://www.lostfilm.tv";
             
+            for (var i = 0; i < titles.Length; i++)
+            {
+                NewsList.Add(new NewsItem
+                {
+                    Title = titles[i],
+                    Image = lostfilmLink + images[i],
+                    Link = lostfilmLink + (string)othersOptions[i]["link"],
+                    PulbicationTime = (DateTime)othersOptions[i]["time"]
+                });
+            }
+        }
+
+        public void SetNews(HtmlDocument doc)
+        {
+            var contentBody = GetContentBody(doc);
+
+            var titles = GetTitles(contentBody);
+            var images = GetImages(contentBody);
+            var othersOptions = GetSomeOptions(contentBody);
+
+            const string lostfilmLink = "http://www.lostfilm.tv";
+
             for (var i = 0; i < titles.Length; i++)
             {
                 NewsList.Add(new NewsItem
