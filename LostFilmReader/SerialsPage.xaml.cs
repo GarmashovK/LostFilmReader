@@ -24,7 +24,22 @@ namespace LostFilmReader
 
         private async void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            await Serials.LoadAsync();
+            try
+            {
+                await Serials.LoadAsync();
+                SerialsListBox.ItemsSource = Serials;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void SerialsListBox_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            var item = (SerialItem)SerialsListBox.SelectedItem;
+
+            NavigationService.Navigate(new Uri("/SerialPage.xaml?Link=" + item.Url, UriKind.Relative));
         }
     }
 }

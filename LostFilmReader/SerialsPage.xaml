@@ -30,11 +30,13 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox>
+            <ListBox Name="SerialsListBox"
+                     Tap="SerialsListBox_Tap">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Name}" Style="{StaticResource MySubtitleStyle}"/>
+                        <StackPanel Margin="20 0 0 20">
+                            <TextBlock FontWeight="Bold" FontSize="24"
+                                       Text="{Binding Name}" Style="{StaticResource MySubtitleStyle}"/>
                             <TextBlock Text="{Binding OriginalName}" Style="{StaticResource MySubtitleStyle}"/>
                         </StackPanel>
                     </DataTemplate>
