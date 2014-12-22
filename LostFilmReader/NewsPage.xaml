@@ -20,6 +20,7 @@
             <!--<shell:ApplicationBarIconButton x:Name="PrevButton" IconUri="Assets/AppBarIcons/back.png" Text="Пред" Click="PrevButton_Click"/>-->
             <shell:ApplicationBarIconButton x:Name="RefreshButton" IconUri="Assets/AppBarIcons/refresh.png" Text="Обновить" Click="RefreshButton_Click"/>
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="ShareBtn" Text="Поделиться..." Click="ShareBtn_Click"/>
                 <shell:ApplicationBarMenuItem x:Name="GoToCommentButton" Text="Комментарии"
                                               Click="GoToCommentButton_Click"/>
             </shell:ApplicationBar.MenuItems>

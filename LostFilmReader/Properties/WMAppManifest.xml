@@ -5,7 +5,7 @@
     <Language code="ru" />
     <Language code="ru-RU" />
   </Languages>
-  <App xmlns="" ProductID="{4422691d-0624-4375-84a2-dbaf6d0cf951}" Title="LostFilmReader" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Garmashov Konstantin" Description="Просмотр новостей с сайта lostfilm.tv" Publisher="Garmashov Konstantin" PublisherID="{cf73d344-c195-4670-87ae-d60c1f5f89f7}">
+  <App xmlns="" ProductID="{4422691d-062d-4375-84d2-dbaf6d0cf951}" Title="LostFilmReader" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="Garmashov Konstantin" Description="Просмотр новостей с сайта lostfilm.tv" Publisher="Garmashov Konstantin" PublisherID="{cf73d344-c195-4670-87ae-d60c1f5f89f7}">
     <IconPath IsRelative="true" IsResource="false">Assets\LFLogo.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Navigation;
-using System.Windows.Media;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using LostFilmLibrary;
+using Microsoft.Phone.Tasks;
 using LostFilmLibrary.News;
 using System.Threading.Tasks;
 
@@ -88,6 +83,16 @@ namespace LostFilmReader
         private void GoToCommentButton_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/CommentsPage.xaml" + "?Link=" + NewsLink + "&Id=" + Id, UriKind.Relative));
+        }
+
+        private void ShareBtn_Click(object sender, EventArgs e)
+        {
+            var shareTask = new ShareLinkTask();
+
+            shareTask.Title = shareTask.Message = TitleBox.Text;
+            shareTask.LinkUri = new Uri(NewsLink);
+            
+            shareTask.Show();
         }
 
         //private void NextButton_Click(object sender, EventArgs e)
