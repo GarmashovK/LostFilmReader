@@ -17,8 +17,6 @@ namespace LostFilmReader
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        
-
         // Конструктор
         public MainPage()
         {
@@ -108,7 +106,7 @@ namespace LostFilmReader
             //counter += 10;
 
             //await LoadNewsList();
-            NewsList.LoadNextPage();
+            await NewsList.LoadNextPage();
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)

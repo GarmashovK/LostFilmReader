@@ -10,15 +10,17 @@ namespace LostFilmLibrary.News
     public class NewsLoader
     {
         public ObservableCollection<NewsItem> NewsList { get; set; }
+        public string Link { get; set; }
 
         public NewsLoader()
         {
+            Link = "http://www.lostfilm.tv/news.php";
             NewsList = new ObservableCollection<NewsItem>();
         }
 
         public async Task LoadNewsAsync(uint start)
         {
-            await LoadNewsAsync("http://www.lostfilm.tv/news.php?o=" + start);
+            await LoadNewsAsync(Link + (Link.Contains("?") ? "&" : "?") + "o=" + start);
         }
         
         public async Task LoadNewsAsync(string url)
