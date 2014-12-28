@@ -34,29 +34,7 @@ namespace LostFilmLibrary.News
 
             var contentBody = GetContentBody(doc);
 
-            try
-            {
-                var titles = GetTitles(contentBody);
-                var images = GetImages(contentBody);
-                var othersOptions = GetSomeOptions(contentBody);
-            }
-            catch (Exception exc)
-            {
-                throw new NewsNotFoundException();
-            }
-
-            const string lostfilmLink = "http://www.lostfilm.tv";
-            
-            for (var i = 0; i < titles.Length; i++)
-            {
-                NewsList.Add(new NewsItem
-                {
-                    Title = titles[i],
-                    Image = lostfilmLink + images[i],
-                    Link = lostfilmLink + (string)othersOptions[i]["link"],
-                    PulbicationTime = (DateTime)othersOptions[i]["time"]
-                });
-            }
+            SetNews(doc);
         }
 
         public void SetNews(HtmlDocument doc)
@@ -127,6 +105,7 @@ namespace LostFilmLibrary.News
             return result;
         }
         
+        //pull the images from contentBody tag
         private string[] GetImages(IEnumerable<HtmlNode> contentBody)
         {
             return contentBody

@@ -16,8 +16,8 @@ namespace LostFilmReader.Controls
     {
         //public NewsLoader Loader { get; set; }
         public NewsLoader _newsLoader { get; set; }
-        private uint counter { get; set; }
-        private bool _stop = false;
+        private uint counter { get; set; }              //number of page
+        private bool _stop = false;                     //flag for detecting the news contains
 
         public NewsListView()
         {
@@ -45,8 +45,13 @@ namespace LostFilmReader.Controls
             
         }
 
+        //loading News
         public async Task LoadNewsList()
         {
+            //checking for loading
+            if (_stop)
+                return;
+
             SystemTray.ProgressIndicator = new ProgressIndicator();
             SystemTray.ProgressIndicator.IsVisible = true;
             SystemTray.ProgressIndicator.IsIndeterminate = true;
@@ -57,7 +62,15 @@ namespace LostFilmReader.Controls
             catch (Exception exception)
             {
                 if (exception is NewsNotFoundException)
+                {
+                    if (_newsLoader.NewsList.Count == 0)
+                    {
+                        var txtNotFound = new TextBlock();
+                        txtNotFound.FontSize = 24;
+                        txtNotFound.Text = "Нет новостей";
+                    }
                     _stop = true;
+                }
                 counter -= 10;
                 MessageBox.Show(exception.Message);
             }
