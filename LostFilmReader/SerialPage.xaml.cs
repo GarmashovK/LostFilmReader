@@ -28,7 +28,7 @@ namespace LostFilmReader
             {
                 _page = new LostFilmLibrary.Serials.SerialPage();
                 _page.Link = NavigationContext.QueryString["link"];
-                NewsListBox._newsLoader = _page;
+                NewsListBox.SetLoader(_page);
             }
         }
 
@@ -41,9 +41,12 @@ namespace LostFilmReader
             try
             {
                 await _page.Load();
+
                 ContentPivot.Title = _page.Title;
                 SerialImg.Source = new BitmapImage(new Uri(_page.Image));
                 SerialDesc.Text = _page.Description;
+                _page.Link = "http://www.lostfilm.tv/news.php?cat="
+                    + _page.Link.Substring(_page.Link.IndexOf("cat="));
             }
             catch (Exception exc)
             {

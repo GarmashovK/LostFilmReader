@@ -40,12 +40,14 @@ namespace LostFilmLibrary.News
         public void SetNews(HtmlDocument doc)
         {
             var contentBody = GetContentBody(doc);
+            string[] titles,images;
+            Dictionary<string, object>[] othersOptions;
 
             try
             {
-                var titles = GetTitles(contentBody);
-                var images = GetImages(contentBody);
-                var othersOptions = GetSomeOptions(contentBody);
+                titles = GetTitles(contentBody);
+                images = GetImages(contentBody);
+                othersOptions = GetSomeOptions(contentBody);
             }
             catch (Exception exc)
             {

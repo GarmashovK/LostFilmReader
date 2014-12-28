@@ -15,7 +15,7 @@ namespace LostFilmReader.Controls
     public partial class NewsListView : UserControl
     {
         //public NewsLoader Loader { get; set; }
-        public NewsLoader _newsLoader { get; set; }
+        private NewsLoader _newsLoader { get; set; }
         private uint counter { get; set; }              //number of page
         private bool _stop = false;                     //flag for detecting the news contains
 
@@ -33,6 +33,12 @@ namespace LostFilmReader.Controls
 
             _newsLoader = loader;
             counter = 0;
+        }
+
+        public void SetLoader(NewsLoader loader)
+        {
+            _newsLoader = loader;
+            NewsList.ItemsSource = loader.NewsList;
         }
 
         public async Task LoadNextPage()
@@ -57,6 +63,7 @@ namespace LostFilmReader.Controls
             SystemTray.ProgressIndicator.IsIndeterminate = true;
             try
             {
+                //loading page
                 await _newsLoader.LoadNewsAsync(counter);
             }
             catch (Exception exception)
