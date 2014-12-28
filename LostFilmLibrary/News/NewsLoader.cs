@@ -7,6 +7,8 @@ using HtmlAgilityPack;
 
 namespace LostFilmLibrary.News
 {
+    public class NewsNotFoundException : Exception { }
+
     public class NewsLoader
     {
         public ObservableCollection<NewsItem> NewsList { get; set; }
@@ -32,9 +34,16 @@ namespace LostFilmLibrary.News
 
             var contentBody = GetContentBody(doc);
 
-            var titles = GetTitles(contentBody);
-            var images = GetImages(contentBody);
-            var othersOptions = GetSomeOptions(contentBody);
+            try
+            {
+                var titles = GetTitles(contentBody);
+                var images = GetImages(contentBody);
+                var othersOptions = GetSomeOptions(contentBody);
+            }
+            catch (Exception exc)
+            {
+                throw new NewsNotFoundException();
+            }
 
             const string lostfilmLink = "http://www.lostfilm.tv";
             
@@ -54,12 +63,19 @@ namespace LostFilmLibrary.News
         {
             var contentBody = GetContentBody(doc);
 
-            var titles = GetTitles(contentBody);
-            var images = GetImages(contentBody);
-            var othersOptions = GetSomeOptions(contentBody);
+            try
+            {
+                var titles = GetTitles(contentBody);
+                var images = GetImages(contentBody);
+                var othersOptions = GetSomeOptions(contentBody);
+            }
+            catch (Exception exc)
+            {
+                throw new NewsNotFoundException();
+            }
 
             const string lostfilmLink = "http://www.lostfilm.tv";
-
+            
             for (var i = 0; i < titles.Length; i++)
             {
                 NewsList.Add(new NewsItem

@@ -17,6 +17,7 @@ namespace LostFilmReader.Controls
         //public NewsLoader Loader { get; set; }
         public NewsLoader _newsLoader { get; set; }
         private uint counter { get; set; }
+        private bool _stop = false;
 
         public NewsListView()
         {
@@ -36,9 +37,12 @@ namespace LostFilmReader.Controls
 
         public async Task LoadNextPage()
         {
-            counter += 10;
-
-            await LoadNewsList();
+            if (!_stop)
+            {
+                counter += 10;
+                await LoadNewsList();
+            }
+            
         }
 
         public async Task LoadNewsList()
@@ -52,6 +56,8 @@ namespace LostFilmReader.Controls
             }
             catch (Exception exception)
             {
+                if (exception is NewsNotFoundException)
+                    _stop = true;
                 counter -= 10;
                 MessageBox.Show(exception.Message);
             }
