@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cts="clr-namespace:LostFilmReader.Controls"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -17,18 +18,26 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <phone:Pivot Title="MY APPLICATION">
+        <phone:Pivot Name="ContentPivot">
             <!--Pivot item one-->
+            <phone:Pivot.Title>
+                <TextWrapping>Wrap</TextWrapping>
+            </phone:Pivot.Title>
             <phone:PivotItem Header="Описание">
                 <Grid>
-                    
+                    <ScrollViewer>
+                        <StackPanel>
+                            <Image Name="SerialImg" Stretch="UniformToFill"/>
+                            <TextBlock Name="SerialDesc" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </ScrollViewer>
                 </Grid>
             </phone:PivotItem>
 
             <!--Pivot item two-->
             <phone:PivotItem Header="Новости">
                 <Grid>
-                    
+                    <cts:NewsListView Name="NewsListBox"/>
                 </Grid>
             </phone:PivotItem>
         </phone:Pivot>

@@ -15,7 +15,7 @@ namespace LostFilmReader.Controls
     public partial class NewsListView : UserControl
     {
         //public NewsLoader Loader { get; set; }
-        private NewsLoader _newsLoader { get; set; }
+        public NewsLoader _newsLoader { get; set; }
         private uint counter { get; set; }
 
         public NewsListView()

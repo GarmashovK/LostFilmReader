@@ -11,9 +11,9 @@ namespace LostFilmLibraryTest.SerialsTests
         [TestMethod]
         public async Task LoadTest()
         {
-            var url = "http://www.lostfilm.tv/browse.php?cat=198";
-            var serialPage = new SerialPage();
-            await serialPage.Load(url);
+            //var url = "http://www.lostfilm.tv/browse.php?cat=198";
+            //var serialPage = new SerialPage();
+            //await serialPage.Load(url);
 
 
         }
