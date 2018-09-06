@@ -123,3 +123,6 @@ C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFi
 C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Release\LostFilmReader.pdb
 C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Release\XapCacheFile.xml
 C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Release\SerialsPage.g.cs
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Release\Controls\NewsListView.g.cs
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Release\Microsoft.Phone.Controls.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Release\SerialPage.g.cs

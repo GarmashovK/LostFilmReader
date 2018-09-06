@@ -31,9 +31,7 @@ namespace LostFilmLibrary.News
 
             var doc = new HtmlDocument();
             doc.LoadHtml(page);
-
-            var contentBody = GetContentBody(doc);
-
+            
             SetNews(doc);
         }
 
@@ -136,9 +134,10 @@ namespace LostFilmLibrary.News
 
         private HtmlNodeCollection GetContentBody(HtmlDocument doc)
         {
-            return doc.DocumentNode.Descendants()
+            var tmp = doc.DocumentNode.Descendants()
                 .First(n => n.Name == "html").ChildNodes
-                .First(n => n.Name == "body").ChildNodes
+                .First(n => n.Name == "body").ChildNodes;
+            return tmp
                 .First(n => n.Name == "div" && n.Attributes.Contains("id") && n.Attributes["id"].Value == "MainDiv")
                 .ChildNodes
                 .First(n => n.Name == "div" && n.Attributes.Contains("id") && n.Attributes["id"].Value == "Onwrapper")

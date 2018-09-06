@@ -131,3 +131,7 @@ C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFi
 C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\Microsoft.Threading.Tasks.xml
 C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
 C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\Microsoft.Threading.Tasks.Extensions.Phone.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Debug\Controls\NewsListView.g.cs
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Debug\SerialPage.g.cs
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmReader\obj\Debug\SerialsPage.g.cs

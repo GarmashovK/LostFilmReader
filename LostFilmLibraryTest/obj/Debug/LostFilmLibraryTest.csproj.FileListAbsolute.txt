@@ -1,0 +1,11 @@
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\bin\Debug\LostFilmLibraryTest.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\bin\Debug\LostFilmLibraryTest.pdb
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\bin\Debug\LostFilmLibrary.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\bin\Debug\HtmlAgilityPack-PCL.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\bin\Debug\LostFilmLibrary.pdb
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\bin\Debug\HtmlAgilityPack-PCL.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\obj\Debug\LostFilmLibraryTest.csprojResolveAssemblyReference.cache
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\obj\Debug\LostFilmLibraryTest.dll
+C:\Users\Константин\Documents\Visual Studio 2013\LostFilmReader\LostFilmLibraryTest\obj\Debug\LostFilmLibraryTest.pdb
